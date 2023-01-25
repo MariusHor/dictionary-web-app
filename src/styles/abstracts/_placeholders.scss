@@ -1,0 +1,26 @@
+%grid-center-y {
+  display: grid;
+  align-items: center;
+}
+
+%flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+%bckg-contain-center {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+%bckg-center {
+  background-repeat: no-repeat;
+  background-position: center;
+}

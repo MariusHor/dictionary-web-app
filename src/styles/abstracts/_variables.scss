@@ -1,0 +1,41 @@
+//COLORS
+
+// Primary
+$clr-bright-blue: hsl(220, 98%, 61%);
+$clr-checked: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+// Light Theme
+
+$clr-very-light-gray: hsl(0, 0%, 98%);
+$clr-very-light-grayish-blue: hsl(236, 33%, 92%);
+$clr-light-grayish-blue: hsl(233, 11%, 84%);
+$clr-dark-grayish-blue: hsl(236, 9%, 61%);
+$clr-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+// Dark Theme
+
+$clr-very-dark-blue: hsl(235, 21%, 11%);
+$clr-dark-desaturated-blue: hsl(235, 24%, 19%);
+$clr-light-grayish-blue: hsl(234, 39%, 85%);
+$clr-light-grayish-blue-hover: hsl(236, 33%, 92%);
+$clr-dark-grayish-blue: hsl(234, 11%, 52%);
+$clr-very-dark-grayish-blue: hsl(232, 14%, 42%);
+$clr-darker-grayish-blue: hsl(237, 14%, 26%);
+
+//TYPOGRAPHY
+$fs-primary: 13px;
+$fs-secondary: 14px;
+$ff-primary: 'Segoe', 'Segoe UI', 'Arial', 'sans-serif';
+$fw-primary: 400;
+$fw-secondary: 700;
+
+//BREAKPOINTS
+
+$breakpoints: (
+  xsmall: 22em,
+  small: 36em,
+  medium: 48em,
+  large: 62em,
+  xlarge: 75em,
+  xxlarge: 93em,
+);

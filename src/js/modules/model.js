@@ -1,6 +1,6 @@
-import pubSub from './utils/pubSub';
+import pubSub from './utils/util.pubSub';
 import { NetworkError } from './customErrors';
-import { API_URL } from './utils/config';
+import { API_URL } from './utils/util.config';
 
 class Model {
   constructor() {

@@ -1,5 +1,5 @@
-import { formatInput } from './utils/helpers';
-import pubSub from './utils/pubSub';
+import { formatInput } from './utils/util.helpers';
+import pubSub from './utils/util.pubSub';
 import { NetworkError, ValidationError } from './customErrors';
 
 export default class Presenter {

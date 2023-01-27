@@ -1,5 +1,5 @@
-import searchView from './searchView';
-import resultsView from './resultsView';
+import searchView from './view.search';
+import resultsView from './view.results';
 
 export default {
   searchView,

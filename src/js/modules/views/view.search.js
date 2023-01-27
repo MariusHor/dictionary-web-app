@@ -1,6 +1,6 @@
 import View from './view';
-import { $el } from '../utils/helpers';
-import pubSub from '../utils/pubSub';
+import { $el } from '../utils/util.helpers';
+import pubSub from '../utils/util.pubSub';
 
 class SearchView extends View {
   formInput = $el('.form__input');

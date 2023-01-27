@@ -1,7 +1,8 @@
 {
   "rules": {
     "class-methods-use-this": "off",
-    "import/no-extraneous-dependencies": 1
+    "import/no-extraneous-dependencies": 1,
+    "no-useless-catch": 0
   },
   "env": {
     "es6": true,

@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import model from './modules/model';
-import view from './modules/views/view';
-import Controller from './modules/controller';
+import views from './modules/views';
+import Presenter from './modules/presenter';
 
-const app = new Controller(model, view);
-
+const app = new Presenter(model);
 app.init();

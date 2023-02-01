@@ -1,0 +1,82 @@
+@use '../abstracts/' as *;
+
+.btn-purple,
+.btn-purple:focus {
+  width: fit-content;
+  background-color: $clr-accent !important;
+  border-color: $clr-accent;
+  color: #fff;
+}
+
+.btn-purple:hover {
+  color: #fff;
+}
+
+.btn-purple.dropdown-toggle {
+  border-left-color: $clr-accent !important;
+}
+
+.btn-purple.active {
+  background-color: $clr-accent !important;
+  border-color: $clr-accent;
+}
+
+.btn-purple:hover,
+.open .btn-purple.dropdown-toggle {
+  background-color: $clr-hover !important;
+  border-color: $clr-hover;
+  color: #fff;
+}
+
+.btn-purple.disabled,
+.btn-purple[disabled],
+fieldset[disabled] .btn-purple,
+.btn-purple.disabled:hover,
+.btn-purple[disabled]:hover,
+fieldset[disabled] .btn-purple:hover,
+.btn-purple.disabled:focus,
+.btn-purple[disabled]:focus,
+fieldset[disabled] .btn-purple:focus,
+.btn-purple.disabled:active,
+.btn-purple[disabled]:active,
+fieldset[disabled] .btn-purple:active,
+.btn-purple.disabled.active,
+.btn-purple[disabled].active,
+fieldset[disabled] .btn-purple.active {
+  background-color: $clr-hover !important;
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.audio-btn {
+  position: relative;
+  transition: $transition-primary;
+  &:disabled {
+    border: none;
+    opacity: 0.4;
+  }
+  &::before {
+    transition: $transition-primary;
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    right: 0;
+    transform: translate(0, 0);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: $clr-accent;
+    box-shadow: 5px 2px rgb(240 46 170 / 15%), 10px 5px rgb(240 46 170 / 10%),
+      15px 10px rgb(240 46 170 / 7%), 20px 15px rgb(240 46 170 / 5%), 25px 20px rgb(240 46 170 / 2%);
+    opacity: 0.2;
+    z-index: -1;
+  }
+  &:not(:disabled):hover::before {
+    opacity: 0.5;
+    transform: translate(2%, 2%);
+  }
+}

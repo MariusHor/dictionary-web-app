@@ -9,11 +9,3 @@
   width: 1px;
   overflow: hidden;
 }
-
-body {
-  font-family: $ff-primary;
-  font-size: $fs-primary;
-  @include breakpoint(xlarge) {
-    font-size: $fs-secondary;
-  }
-}

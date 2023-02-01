@@ -1,31 +1,26 @@
-@use '../abstracts' as *;
+@use '../abstracts/' as *;
 
 .dropdown-btn {
-  text-align: end;
-  background-color: inherit;
-  border-radius: 10px;
-  width: fit-content;
-  color: black;
-  font-weight: bold;
   background-image: url('/src/assets/icon-arrow-down.svg');
   background-position: right 0.25rem center;
   background-repeat: no-repeat;
+  border-radius: 10px;
   padding: 0 1.9rem 0 1rem;
-  font-size: $fs-primary;
-  transition: 0.3s ease-in-out;
+  font-weight: bold;
+  transition: box-shadow $transition-primary;
   &:hover,
   &:active,
   &:focus {
-    box-shadow: rgba(194, 119, 238, 0.2) 0px 2px 4px;
+    box-shadow: $clr-box-shadow 0px 2px 4px;
   }
 }
 
 .dropdown-menu {
   border: none;
-  box-shadow: rgba(143, 113, 161, 0.2) 0px 5px 14px;
+  box-shadow: $clr-box-shadow 0px 5px 14px;
   --bs-dropdown-link-active-bg: inherit;
 
   .dropdown-item:active {
-    --bs-dropdown-link-active-color: rgb(164, 69, 237);
+    --bs-dropdown-link-active-color: hsl(274, 82%, 60%);
   }
 }

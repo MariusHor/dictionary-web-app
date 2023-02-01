@@ -1,0 +1,93 @@
+@use '../abstracts/' as *;
+
+.query-result {
+  &__word {
+    font-size: $fs-heading-l;
+    margin: 0;
+    @include breakpoint(large) {
+      font-size: $fs-heading-xl;
+    }
+  }
+  &__phonetic-text {
+    margin-top: 10px;
+    color: $clr-accent;
+  }
+  &__phonetic-audio {
+    width: 75px;
+    height: 75px;
+    background: url('/src/assets/circle-play-solid.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &__title {
+    width: fit-content;
+  }
+
+  &__type {
+    position: relative;
+    font-size: $fs-heading-m;
+    margin: 0;
+    z-index: 100;
+    &::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      top: 50%;
+      background-color: $clr-line;
+    }
+    h2 {
+      background: $clr-bg;
+      z-index: 10;
+      width: fit-content;
+    }
+  }
+
+  &__types {
+    h4 {
+      font-size: $fs-heading-s;
+      color: $clr-text-secondary;
+      font-weight: lighter;
+      margin-bottom: 0;
+    }
+  }
+
+  &__meaning {
+    ul {
+      margin-top: 20px;
+    }
+    li {
+      position: relative;
+      margin-left: 30px;
+      &::after {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: $clr-accent;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: all 200ms ease;
+        border-radius: 33% 67% 65% 35%/46% 62% 38% 54%;
+      }
+    }
+
+    p {
+      color: $clr-text-secondary;
+      margin-left: 30px;
+      font-weight: 300;
+    }
+  }
+
+  &__synonyms {
+    align-items: center;
+    ul {
+      gap: 10px;
+      color: $clr-accent;
+      font-weight: bold;
+    }
+  }
+}

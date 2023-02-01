@@ -3,5 +3,5 @@ import model from './modules/model';
 import views from './modules/views';
 import Presenter from './modules/presenter';
 
-const app = new Presenter(model);
+const app = new Presenter(views, model);
 app.init();

@@ -15,10 +15,10 @@
     />
   </head>
   <body>
-    <div id="app" class="container-sm">
-      <div class="row mt-3">
+    <div id="app" class="container-sm py-5">
+      <div class="row">
         <div class="col-6">
-          <a href="#">
+          <a class="app__logo" href="/">
             <img src="./assets/logo.svg" alt="" />
           </a>
         </div>
@@ -49,7 +49,7 @@
               placeholder="Search word"
               required
             />
-            <span class="form__btn-wrapper d-flex align-items-center">
+            <span class="d-flex align-items-center form__btn-wrapper">
               <button class="form__btn" type="submit">
                 <img src="./assets/icon-search.svg" alt="" />
               </button>
@@ -58,7 +58,7 @@
           </form>
         </div>
       </div>
-      <div class="col query-result mt-5"></div>
+      <div class="col d-flex flex-column gap-5 mt-5 query-result"></div>
     </div>
   </body>
 </html>

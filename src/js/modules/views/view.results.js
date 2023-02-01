@@ -1,65 +1,112 @@
 import View from './view';
 import { $el } from '../utils/util.helpers';
 import pubSub from '../utils/util.pubSub';
-import playIcon from '../../../assets/icon-play.svg';
 
-class ResultsView extends View {
+class Results extends View {
   constructor() {
     super();
     this.parentEl = $el('.query-result');
-    pubSub.subscribe('networkError', this.handleError);
-    pubSub.subscribe('formattedQuery', this.updateView);
-    pubSub.subscribe('renderSpinner', this.renderSpinner);
+    this.#handleSynonymsClick();
+    this.#handlePlayAudio();
+    pubSub.subscribe('formattedQuery', this.#updateView);
   }
 
-  generateMarkup(data) {
+  #generateMarkup(data) {
     return `
-    <div class="row">
-        <div class="col">
+    <div class="d-flex align-items-center justify-content-md-between justify-content-center w-100 flex-wrap gap-4">
+        <div class="query-result__title">
             <h1 class="query-result__word">${data.word}</h1>
-            <p class="query-result__phonetic-text">${data.phonetic}</p>
+            <p class="query-result__phonetic-text">${data.phonetic ?? ''}</p>
         </div>
-        <div class="col d-flex justify-content-end query-result__phonetic-audio">
-            <img src="${playIcon}" alt="" />
-        </div>
+        <button data-audio="button" class="audio-btn query-result__phonetic-audio" ${
+          !this.#checkAudio(data) ? 'disabled' : ''
+        }>
+          <audio data-audio="play">
+            ${data.phonetics.map(
+              phonetic => `
+              <source src="${phonetic.audio}" type="audio/mpeg">
+              `,
+            )}
+          </audio>
+        </button>
     </div>
-    <div class="col">
-        ${this.generateMeaningsMarkup(data.meanings)}
+    <div class="d-flex flex-column gap-5 mt-6 query-result__types">
+        ${this.#generateResultMarkup(data.wordMeanings)}
     </div>`;
   }
 
-  generateMeaningsMarkup(meanings) {
+  #checkAudio = data => data.phonetics.find(element => element.audio.length);
+
+  #generateResultMarkup(meanings) {
     return meanings
       .map(
         meaning => `
-              <h2 class="row query-result__type">${meaning.partOfSpeech}</h2>
-              <div class="row query-result__meaning">
+            <div class="d-flex flex-column gap-4">
+              <div class="row query-result__type">
+                <h2>${meaning.partOfSpeech}</h2>
+              </div>
+              <div class="col query-result__meaning">
                   <h4>Meanings</h4>
-                  <ul>
+                  <ul class="d-flex flex-column gap-2">
                       ${meaning.definitions
                         .map(definition => `<li>${definition.definition}</li>`)
                         .join('')}
                   </ul>
+                  ${
+                    meaning.partOfSpeech === 'verb' && meaning.definitions[0].example
+                      ? `<p class="mt-3">"${meaning.definitions[0].example}"</p>`
+                      : ''
+                  }
               </div>
-              ${meaning.synonyms.length ? this.generateSynonymsMarkup(meaning.synonyms) : ''}
+              ${meaning.synonyms.length ? this.#generateSynonymsMarkup(meaning.synonyms) : ''}
+            </div>
               `,
       )
       .join('');
   }
 
-  generateSynonymsMarkup(synonyms) {
+  #generateSynonymsMarkup(synonyms) {
     return `            
-          <div class="query-result__synonyms d-flex flex-row">
+          <div class="col query-result__synonyms d-flex flex-row gap-4">
               <h4>Synonyms</h4>
-              <ul class="d-flex">
-                  ${synonyms.map(synonym => `<li>${synonym}</li>`).join(' ')}
+              <ul class="d-flex flex-wrap">
+                  ${synonyms
+                    .map(
+                      synonym => `
+                    <li>
+                      <button data-synonym="${synonym}">
+                        ${synonym}
+                      </button>
+                    </li>
+                  `,
+                    )
+                    .join(' ')}
               </ul>
           </div>`;
   }
 
-  updateView = data => {
+  #updateView = data => {
     this.clear();
-    this.parentEl.insertAdjacentHTML('afterBegin', this.generateMarkup(data));
+    this.parentEl.insertAdjacentHTML('afterBegin', this.#generateMarkup(data));
+  };
+
+  #handleSynonymsClick = () => {
+    this.parentEl.addEventListener('click', event => {
+      const element = event.target.closest('[data-synonym]');
+      if (!element) return;
+      const { synonym } = element.dataset;
+      pubSub.publish('userInput', synonym);
+    });
+  };
+
+  #handlePlayAudio = () => {
+    this.parentEl.addEventListener('click', event => {
+      const element = event.target.closest('[data-audio="button"]');
+      if (!element) return;
+      const audioEl = $el('[data-audio="play"]');
+      audioEl.volume = 0.5;
+      audioEl.play();
+    });
   };
 }
-export default new ResultsView();
+export default new Results();

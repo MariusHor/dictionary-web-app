@@ -54,7 +54,9 @@ class View {
   }
 
   clear() {
-    this.parentEl.innerHTML = '';
+    while (this.parentEl.lastChild) {
+      this.parentEl.removeChild(this.parentEl.lastChild);
+    }
   }
 }
 export default View;

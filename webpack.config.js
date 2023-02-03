@@ -34,7 +34,7 @@ module.exports = {
 
       {
         test: /\.ttf|woff$/, // For fonts
-        use: ['url-loader'],
+        type: 'asset/resource',
       },
 
       {

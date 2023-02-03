@@ -1,5 +1,9 @@
 @use '../abstracts' as *;
 
+.main {
+  margin: 0 auto;
+}
+
 @media (min-width: 576px) {
   .container,
   .container-sm {
@@ -12,4 +16,20 @@
   .container-sm {
     max-width: 720px;
   }
+}
+
+@media (min-width: 960px) {
+  .container-md {
+    max-width: 870px;
+  }
+}
+
+.hide {
+  visibility: hidden;
+  display: block;
+}
+
+.show {
+  visibility: visible;
+  display: block;
 }

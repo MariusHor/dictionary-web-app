@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap');
+
 .app {
   &__logo {
     display: block;
     width: fit-content;
   }
+}
+
+.ff-serif {
+  font-family: 'Lora', serif;
+}
+
+.ff-sans-serif {
+  font-family: 'Inter', sans-serif;
+}
+
+.ff-mono {
+  font-family: 'Inconsolata', monospace;
 }

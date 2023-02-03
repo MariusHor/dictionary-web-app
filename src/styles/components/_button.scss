@@ -52,11 +52,17 @@ fieldset[disabled] .btn-purple.active {
 }
 
 .audio-btn {
+  width: 75px;
+  height: 75px;
+  background: url('/src/assets/circle-play-solid.svg');
+  background-repeat: no-repeat;
+  background-position: right;
   position: relative;
   transition: $transition-primary;
   &:disabled {
     border: none;
     opacity: 0.4;
+    cursor: initial;
   }
   &::before {
     transition: $transition-primary;
@@ -75,7 +81,9 @@ fieldset[disabled] .btn-purple.active {
     opacity: 0.2;
     z-index: -1;
   }
-  &:not(:disabled):hover::before {
+  &:not(:disabled):hover::before,
+  &:not(:disabled):active::before,
+  &:not(:disabled):focus-visible::before {
     opacity: 0.5;
     transform: translate(2%, 2%);
   }

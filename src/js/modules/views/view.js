@@ -48,24 +48,6 @@ class View {
   `;
   }
 
-  handleValidationError = error => {
-    this.parentEl.addEventListener(
-      'submit',
-      event => {
-        if (!this.parentEl.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        this.feedbackEl.textContent = error.feedback;
-        this.parentEl.classList.add('was-validated');
-      },
-      false,
-    );
-    this.input.addEventListener('blur', () => {
-      this.parentEl.classList.remove('was-validated');
-    });
-  };
-
   focusInput() {
     this.input.value = '';
     this.input.focus();

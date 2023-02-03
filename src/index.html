@@ -15,8 +15,8 @@
     />
   </head>
   <body>
-    <div id="app" class="container-sm py-5">
-      <div class="row">
+    <div id="app" class="container-md py-5 ff-serif">
+      <div class="row header">
         <div class="col-6">
           <a class="app__logo" href="/">
             <img src="./assets/logo.svg" alt="" />
@@ -29,36 +29,37 @@
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-            >
-              Serif
-            </button>
+            ></button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><button class="dropdown-item" type="button">Serif</button></li>
-              <li><button class="dropdown-item" type="button">Sans Serif</button></li>
-              <li><button class="dropdown-item" type="button">Mono</button></li>
+              <li>
+                <button class="dropdown-item" type="button" data-font="sans-serif">
+                  Sans Serif
+                </button>
+              </li>
+              <li><button class="dropdown-item" type="button" data-font="serif">Serif</button></li>
+              <li><button class="dropdown-item" type="button" data-font="mono">Mono</button></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="row mt-5 justify-content-center">
-        <div class="form-wrapper">
-          <form class="form input-group needs-validation" novalidate>
-            <input
-              type="text"
-              class="form__input form-control"
-              placeholder="Search word"
-              required
-            />
-            <span class="d-flex align-items-center form__btn-wrapper">
-              <button class="form__btn" type="submit">
-                <img src="./assets/icon-search.svg" alt="" />
-              </button>
-            </span>
-            <div class="invalid-feedback mt-2"></div>
-          </form>
+      <div class="col-sm-11 col-md-10 main">
+        <div class="row mt-5 justify-content-center">
+          <div class="form-wrapper">
+            <form class="form">
+              <div class="form__top">
+                <input type="text" class="form__input" placeholder="Search for any word..." />
+                <span class="d-flex align-items-center form__btn-wrapper">
+                  <button class="form__btn" type="submit">
+                    <img src="./assets/icon-search.svg" alt="" />
+                  </button>
+                </span>
+              </div>
+              <p class="invalid-feedback hide">Whoops, can’t be empty…</p>
+            </form>
+          </div>
         </div>
+        <div class="col d-flex flex-column gap-5 mt-2 mt-md-5 query-result"></div>
       </div>
-      <div class="col d-flex flex-column gap-5 mt-5 query-result"></div>
     </div>
   </body>
 </html>

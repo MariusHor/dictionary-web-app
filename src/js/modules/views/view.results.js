@@ -8,19 +8,17 @@ class Results extends View {
     this.parentEl = $el('.query-result');
     this.#handleSynonymsClick();
     this.#handlePlayAudio();
-    pubSub.subscribe('formattedQuery', this.#updateView);
+    pubSub.subscribe('currentQuery', this.#updateView);
   }
 
   #generateMarkup(data) {
     return `
-    <div class="d-flex align-items-center justify-content-md-between justify-content-center w-100 flex-wrap gap-4">
+    <div class="d-flex align-items-center justify-content-sm-between justify-content-center w-100 flex-wrap gap-4">
         <div class="query-result__title">
             <h1 class="query-result__word">${data.word}</h1>
             <p class="query-result__phonetic-text">${data.phonetic ?? ''}</p>
         </div>
-        <button data-audio="button" class="audio-btn query-result__phonetic-audio" ${
-          !this.#checkAudio(data) ? 'disabled' : ''
-        }>
+        <button data-audio="button" class="audio-btn" ${!this.#checkAudio(data) ? 'disabled' : ''}>
           <audio data-audio="play">
             ${data.phonetics.map(
               phonetic => `
@@ -31,7 +29,7 @@ class Results extends View {
         </button>
     </div>
     <div class="d-flex flex-column gap-5 mt-6 query-result__types">
-        ${this.#generateResultMarkup(data.wordMeanings)}
+        ${this.#generateResultMarkup(data.meanings)}
     </div>`;
   }
 
@@ -47,7 +45,7 @@ class Results extends View {
               </div>
               <div class="col query-result__meaning">
                   <h4>Meanings</h4>
-                  <ul class="d-flex flex-column gap-2">
+                  <ul class="d-flex flex-column gap-3">
                       ${meaning.definitions
                         .map(definition => `<li>${definition.definition}</li>`)
                         .join('')}

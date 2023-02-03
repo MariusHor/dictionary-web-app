@@ -1,7 +1,10 @@
 @use '../abstracts/' as *;
 
 .query-result {
+  max-width: 720px;
+  margin: 0 auto;
   &__word {
+    font-weight: bold;
     font-size: $fs-heading-l;
     margin: 0;
     @include breakpoint(large) {
@@ -11,13 +14,6 @@
   &__phonetic-text {
     margin-top: 10px;
     color: $clr-accent;
-  }
-  &__phonetic-audio {
-    width: 75px;
-    height: 75px;
-    background: url('/src/assets/circle-play-solid.svg');
-    background-repeat: no-repeat;
-    background-position: right;
   }
 
   &__title {
@@ -41,6 +37,8 @@
       background: $clr-bg;
       z-index: 10;
       width: fit-content;
+      font-weight: bold;
+      font-size: $fs-heading-m;
     }
   }
 

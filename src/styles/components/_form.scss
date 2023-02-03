@@ -1,21 +1,53 @@
 @use '../abstracts' as *;
 
 .form-wrapper {
-  max-width: 450px;
-
   .form {
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+    .invalid-input {
+      border: solid 1px red;
+      &:focus-visible {
+        outline: none;
+      }
+      &:focus {
+        box-shadow: red 1.95px 1.95px 2.6px;
+        border: solid 1px red;
+      }
+    }
+
     &__input {
-      padding: 10px 15px 10px 45px;
+      width: 100%;
+      padding: 15px 25px;
       border-radius: 10px !important;
       background-color: $clr-searchbox;
-      border: none;
+      border: solid 1px transparent;
+      font-weight: bold;
+      font-size: inherit;
+      transition: box-shadow 0.3s cubic-bezier(0.415, 0.61, 0.755, 1);
+      &:focus-visible {
+        outline: none;
+      }
+      &:focus {
+        box-shadow: $clr-accent 1.95px 1.95px 2.6px;
+        border: solid 1px $clr-accent;
+      }
+    }
+
+    &__btn-wrapper {
+      min-width: 48px;
+      justify-content: end;
     }
 
     &__btn {
-      padding: 2px 15px;
-      position: absolute;
-      left: 0;
-      z-index: 100;
+      transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      &:hover {
+        transform: scale(1.3);
+      }
+      &:active {
+        transform: scale(1.2);
+      }
     }
   }
 }

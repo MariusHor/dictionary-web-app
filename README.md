@@ -21,7 +21,7 @@
 
 ### Links
 
-- [Live Site Demo](https://dictionary-webapp-vanilla-js.netlify.app/)
+- [Live Site Demo](https://dictionary-web-app-vanilla-js.netlify.app/)
 - [Code Repository](https://github.com/MariusHor/dictionary-web-app)
 
 ### Features

@@ -27,7 +27,7 @@
 ### Features
 
 - Fetching data from the [DictionaryApi](https://dictionaryapi.dev/)
-- Handling errors such as validation erros, network errors or general errors
+- Handling errors such as validation errors, network errors or general errors
 - **State management** using _*LocalStorage*_:
   1. Selected font is being saved and retrieved on app restart
   2. The App saves and retrieves the last 20 searches
